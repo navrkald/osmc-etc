@@ -1,0 +1,13 @@
+systemd-timesync:100000:65536
+systemd-network:165536:65536
+systemd-resolve:231072:65536
+systemd-bus-proxy:296608:65536
+messagebus:362144:65536
+avahi:427680:65536
+ntp:493216:65536
+statd:558752:65536
+sshd:624288:65536
+osmc:689824:65536
+debian-deluged:755360:65536
+deluge:820896:65536
+davecz:886432:65536

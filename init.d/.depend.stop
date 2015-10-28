@@ -1,0 +1,10 @@
+TARGETS = fake-hwclock apache2 deluged avahi-daemon bluetooth urandom sendsigs umountnfs.sh rpcbind nfs-common hwclock.sh umountfs umountroot halt reboot
+sendsigs: avahi-daemon bluetooth deluged apache2
+umountnfs.sh: sendsigs avahi-daemon bluetooth deluged apache2
+rpcbind: umountnfs.sh
+nfs-common: umountnfs.sh
+hwclock.sh: nfs-common
+umountfs: avahi-daemon bluetooth urandom hwclock.sh deluged umountnfs.sh rpcbind apache2
+umountroot: umountfs fake-hwclock
+halt: umountroot
+reboot: umountroot

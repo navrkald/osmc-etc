@@ -1,0 +1,7 @@
+TARGETS = killprocs apache2 dbus deluged motd bootlogs ntp sysstat ssh avahi-daemon bluetooth single rmnologin rc.local
+INTERACTIVE = apache2
+avahi-daemon: dbus
+bluetooth: dbus
+single: killprocs motd bootlogs
+rmnologin: avahi-daemon dbus bluetooth deluged motd bootlogs ntp sysstat ssh apache2
+rc.local: avahi-daemon dbus bluetooth deluged motd bootlogs ntp sysstat ssh apache2
